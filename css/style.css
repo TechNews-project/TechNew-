@@ -127,6 +127,9 @@ section {
 }
 
 .navbar-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
     font-size: 22px;
     font-weight: 700;
     color: var(--text-heading) !important;
@@ -136,6 +139,14 @@ section {
     padding: 0 !important;
     white-space: nowrap;
     flex-shrink: 0;
+}
+
+.navbar-brand .site-logo {
+    display: block;
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    flex: 0 0 32px;
 }
 
 .navbar-brand span,
