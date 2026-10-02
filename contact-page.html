@@ -70,32 +70,38 @@
                 </div>
 
                 <div class="row g-4 justify-content-center">
+                    <!-- Contact Form -->
                     <div class="col-lg-7">
-                        <form onsubmit="return handleContactSubmit(event)">
+                        <p class="team-desc"
+                            data-en="Please complete the form so we can understand your question or feedback and reply to you."
+                            data-kh="សូមបំពេញទម្រង់នេះ ដើម្បីឱ្យយើងយល់ពីសំណួរ ឬមតិយោបល់របស់អ្នក ហើយអាចឆ្លើយតបវិញបាន។">
+                            Please complete the form so we can understand your question or feedback and reply to you.</p>
+                        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
                             <div class="mb-3">
                                 <label class="form-label" data-en="Your Name" data-kh="ឈ្មោះរបស់អ្នក">Your Name</label>
-                                <input type="text" class="form-control" placeholder="Enter your name" required>
+                                <input type="text" name="name" class="form-control" placeholder="Enter your name" required>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" data-en="Email" data-kh="អ៊ីមែល">Email</label>
-                                <input type="email" class="form-control" placeholder="Enter your email" required>
+                                <input type="email" name="email" class="form-control" placeholder="Enter your email" required>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" data-en="Message" data-kh="សារ">Message</label>
-                                <textarea class="form-control" rows="6" placeholder="Write your message" required></textarea>
+                                <textarea name="message" class="form-control" rows="6" placeholder="Write your message" required></textarea>
                             </div>
                             <button type="submit" class="btn btn-primary" data-en="Send Message" data-kh="ផ្ញើសារ">Send Message</button>
                         </form>
                     </div>
 
+                    <!-- Team Chat (Telegram) -->
                     <div class="col-lg-5">
                         <div class="team-chat-box">
                             <p class="team-label" data-en="TELEGRAM" data-kh="តេឡេក្រាម">TELEGRAM</p>
                             <h3 class="team-title" data-en="Team Chat" data-kh="ការជជែករបស់ក្រុម">Team Chat</h3>
                             <p class="team-desc"
-                                data-en="Reach our team directly for news updates, collaborations, and quick support."
-                                data-kh="ទាក់ទងក្រុមរបស់យើងដោយផ្ទាល់សម្រាប់ព័ត៌មានថ្មីៗ កិច្ចសហការ និងការគាំទ្ររហ័ស។">
-                                Reach our team directly for news updates, collaborations, and quick support.</p>
+                                data-en="You can also contact our team directly on Telegram for quick support."
+                                data-kh="អ្នកក៏អាចទាក់ទងក្រុមរបស់យើងដោយផ្ទាល់តាម Telegram សម្រាប់ការគាំទ្ររហ័ស។">
+                                You can also contact our team directly on Telegram for quick support.</p>
                             <a href="https://t.me/Sirlgaddd" target="_blank" class="telegram-user">@Sirlgaddd</a>
                             <a href="https://t.me/Sokyi2027" target="_blank" class="telegram-user">@Sokyi2027</a>
                             <a href="https://t.me/David_web_developer" target="_blank" class="telegram-user">@David_web_developer</a>
