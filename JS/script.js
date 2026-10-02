@@ -20,11 +20,65 @@ if (darkModeBtn) {
     });
 }
 
-function handleContactSubmit(event) {
-    event.preventDefault();
-    alert("Thanks for reaching out! Your message has been received.");
-    event.target.reset();
-    return false;
+/* ===== Contact Form (Web3Forms + Telegram) ===== */
+const contactForm = document.getElementById("contactForm");
+
+if (contactForm) {
+    contactForm.addEventListener("submit", async function (event) {
+        event.preventDefault();
+
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = "Sending...";
+        submitBtn.disabled = true;
+
+        // យកទិន្នន័យពី form
+        const name = contactForm.querySelector('input[name="name"]').value;
+        const email = contactForm.querySelector('input[name="email"]').value;
+        const message = contactForm.querySelector('textarea[name="message"]').value;
+
+        // Telegram Config
+        const BOT_TOKEN = "8237860620:AAHkMYaSJwJIFk04nD5OT0Zm7dSjhiz-OS4";
+        const CHAT_ID = "6951979269";
+
+        try {
+            // ១. ផ្ញើទៅ Web3Forms (Email)
+            const formData = new FormData(contactForm);
+            const web3Response = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                body: formData
+            });
+            const web3Data = await web3Response.json();
+
+            // ២. ផ្ញើទៅ Telegram (បើចង់)
+            try {
+                const telegramText = `📩 New Message from TechNews\n\n👤 Name: ${name}\n📧 Email: ${email}\n💬 Message: ${message}`;
+                await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        chat_id: CHAT_ID,
+                        text: telegramText
+                    })
+                });
+            } catch (telegramError) {
+                console.log("Telegram error (ignored):", telegramError);
+            }
+
+            // ៣. ពិនិត្យលទ្ធផល Web3Forms
+            if (web3Data.success) {
+                window.location.href = "thank-you.html";
+            } else {
+                alert("❌ " + (web3Data.message || "Something went wrong."));
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
+        } catch (error) {
+            alert("❌ Network error. Please try again.");
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+        }
+    });
 }
 
 /* ===== Language (persist across pages) ===== */
@@ -39,6 +93,14 @@ function setLanguage(lang) {
                 ? el.getAttribute("data-kh")
                 : el.getAttribute("data-en");
         if (text) el.textContent = text;
+    });
+
+    document.querySelectorAll("[data-en-placeholder]").forEach((el) => {
+        const placeholder =
+            lang === "kh"
+                ? el.getAttribute("data-kh-placeholder")
+                : el.getAttribute("data-en-placeholder");
+        if (placeholder) el.setAttribute("placeholder", placeholder);
     });
 
     document.querySelectorAll(".lang-btn").forEach((btn) => {

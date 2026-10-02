@@ -76,18 +76,27 @@
                             data-en="Please complete the form so we can understand your question or feedback and reply to you."
                             data-kh="សូមបំពេញទម្រង់នេះ ដើម្បីឱ្យយើងយល់ពីសំណួរ ឬមតិយោបល់របស់អ្នក ហើយអាចឆ្លើយតបវិញបាន។">
                             Please complete the form so we can understand your question or feedback and reply to you.</p>
-                        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+
+                        <form id="contactForm">
+                            <input type="hidden" name="access_key" value="95629d4b-df34-4a96-8a96-10acbb3a8294">
+                            <input type="hidden" name="subject" value="New TechNews contact message">
+                            <input type="hidden" name="from_name" value="TechNews">
+                            <input type="hidden" name="redirect" value="thank-you.html">
+
                             <div class="mb-3">
                                 <label class="form-label" data-en="Your Name" data-kh="ឈ្មោះរបស់អ្នក">Your Name</label>
-                                <input type="text" name="name" class="form-control" placeholder="Enter your name" required>
+                                <input type="text" name="name" class="form-control" placeholder="Enter your name"
+                                    data-en-placeholder="Enter your name" data-kh-placeholder="បញ្ចូលឈ្មោះរបស់អ្នក" required>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" data-en="Email" data-kh="អ៊ីមែល">Email</label>
-                                <input type="email" name="email" class="form-control" placeholder="Enter your email" required>
+                                <input type="email" name="email" class="form-control" placeholder="Enter your email"
+                                    data-en-placeholder="Enter your email" data-kh-placeholder="បញ្ចូលអ៊ីមែលរបស់អ្នក" required>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" data-en="Message" data-kh="សារ">Message</label>
-                                <textarea name="message" class="form-control" rows="6" placeholder="Write your message" required></textarea>
+                                <textarea name="message" class="form-control" rows="6" placeholder="Write your message"
+                                    data-en-placeholder="Write your message" data-kh-placeholder="សរសេរសាររបស់អ្នក" required></textarea>
                             </div>
                             <button type="submit" class="btn btn-primary" data-en="Send Message" data-kh="ផ្ញើសារ">Send Message</button>
                         </form>
