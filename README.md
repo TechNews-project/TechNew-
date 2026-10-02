@@ -1,12 +1,18 @@
-# TechNews
+# TechNews - Technology News & Blog Website
 
-## Run the website and Telegram contact endpoint
+A modern technology news and blog website built with HTML, CSS, Bootstrap 5, and JavaScript.
 
-The contact form sends messages through the Node.js server. Keep the Telegram bot token on the server; never put it in `JS/script.js` or another browser-loaded file.
+## 📖 About
 
-1. Revoke the previously shared bot token with BotFather and create a replacement.
-2. Copy `.env.example` to `.env` and set `BOT_TOKEN` to the replacement token and `CHAT_ID` to the destination chat ID.
-3. Install dependencies with `npm install`.
-4. Start the site with `npm start` and open `http://localhost:3000/contact-page.html`.
+TechNews is a technology news and blog website that helps students and technology enthusiasts discover useful information about AI, mobile technology, computers, programming, and cybersecurity in one place.
 
-The `.env` file is excluded from git. Configure the same environment variables in your hosting provider when deploying; static-only hosting cannot run the `/api/contact` endpoint.
+## ✨ Features
+
+- 🌓 **Dark Mode (Default) & Light Mode** — Toggle with the ☀️ button
+- 🌐 **EN/KH Language Toggle** — Switch between English and Khmer
+- 🔖 **Bookmarks** — Save articles for later reading
+- 📖 **Reading Mode** — Distraction-free reading experience
+- 🔍 **Category Filter** — Filter news by AI, Mobile, Computers, Security
+- 📱 **Fully Responsive** — Works on Desktop, Tablet, and Mobile
+
+## 📂 Project Structure
